@@ -1,4 +1,4 @@
-package edu.pxu.spring.democontroller.config;
+package pxu.com.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,10 +9,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import pxu.com.repository.ProductRepository;
+import pxu.com.repository.ProductRepositoryImpl;
+import pxu.com.service.ProductService;
+import pxu.com.service.ProductSeviceImpl;
+
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "edu.pxu.spring" })
-public class AppConfig implements WebMvcConfigurer{
+@ComponentScan(basePackages = { "pxu.com" })
+public class AppConfig implements WebMvcConfigurer {
+
 	@Bean
 	public InternalResourceViewResolver resolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -21,11 +27,19 @@ public class AppConfig implements WebMvcConfigurer{
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}
-	
+
 	@Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry
-          .addResourceHandler("/resources/**")
-          .addResourceLocations("/resources/"); 
-    }
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	}
+
+	@Bean
+	public ProductService productService() {
+		return new ProductSeviceImpl();
+	}
+
+	@Bean
+	public ProductRepository productRepository() {
+		return new ProductRepositoryImpl();
+	}
 }
