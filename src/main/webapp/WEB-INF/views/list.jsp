@@ -6,10 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>List Product</title>
 </head>
 <body>
-	<a href="add">dcdkjb</a>
+	<h1>LIST PRODUCT</h1>
+	<button ><a href="add">Add Product</a></button>
 	<table>
 		<thead>
 			<tr>

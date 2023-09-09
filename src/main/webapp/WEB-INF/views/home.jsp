@@ -7,21 +7,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome page</title>
+<title>Add Product</title>
 </head>
 <body>
-
-	<h1>Sign up Account</h1>
-
+	<h1>ADD PRODUCT</h1>
 	<form:form action="save" method="post" modelAttribute="product">
 		<table>
 			<tr>
-				<td><form:label path="name">Tên sản phẩm: </form:label></td>
+				<td><form:label path="name">Name product: </form:label></td>
 				<td><form:input path="name" /> <form:errors path="name"
 						cssStyle="color:#d04c4c" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="price">Giá: </form:label></td>
+				<td><form:label path="price">Price: </form:label></td>
 				<td><form:input path="price" /> <form:errors path="price"
 						cssStyle="color:red" /></td>
 			</tr>
